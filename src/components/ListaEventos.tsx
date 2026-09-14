@@ -2,6 +2,7 @@
 
 import { useEventos } from "@/hooks/useEventos"
 
+
 export function ListaEventos() {
   const { eventos, cargando } = useEventos()
 
