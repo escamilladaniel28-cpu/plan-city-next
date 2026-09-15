@@ -8,9 +8,16 @@ export function ListaCategorias() {
   if (cargando) return <p>Cargando categorías...</p>
 
   return (
-    <ul>
+    <ul className="flex flex-col gap-3">
       {categorias.map((categoria) => (
-        <li key={categoria.id}>{categoria.nombre}</li>
+        <li key={categoria.id} className="flex flex-col items-center">
+          <img
+            src={categoria.imagen}
+            alt={categoria.nombre}
+            className="w-full rounded"
+          />
+          <span>{categoria.nombre}</span>
+        </li>
       ))}
     </ul>
   )
