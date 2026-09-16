@@ -1,18 +1,28 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { Evento } from "@/types/evento"
-import { obtenerEventos } from "@/services/eventos.service"
+import { obtenerEventos, FiltrosEvento } from "@/services/eventos.service"
 
-export function useEventos() {
+export function useEventos(filtros?: FiltrosEvento) {
   const [eventos, setEventos] = useState<Evento[]>([])
   const [cargando, setCargando] = useState(true)
 
-  useEffect(() => {
-    obtenerEventos()
-      .then(setEventos)
-      .finally(() => setCargando(false))
-  }, [])
+  const cargarEventos = useCallback(async () => {
+    setCargando(true)
+    try {
+      const data = await obtenerEventos(filtros)
+      setEventos(data)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setCargando(false)
+    }
+  }, [filtros?.search, filtros?.categoryId])
 
-  return { eventos, cargando }
+  useEffect(() => {
+    cargarEventos()
+  }, [cargarEventos])
+
+  return { eventos, cargando, recargar: cargarEventos }
 }

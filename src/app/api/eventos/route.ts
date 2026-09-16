@@ -1,13 +1,49 @@
 import { NextResponse } from "next/server"
+import { cookies } from "next/headers"
 
-export async function GET() {
-  const eventos = [
-    { id: 1, nombre: "Concierto en el parque", imagen: "https://picsum.photos/seed/concierto/300/200" },
-    { id: 2, nombre: "Feria gastronómica", imagen: "https://picsum.photos/seed/feria/300/200" },
-    { id: 3, nombre: "Noche de cine al aire libre", imagen: "https://picsum.photos/seed/cine-aire/300/200" },
-    { id: 4, nombre: "Torneo de fútbol barrial", imagen: "https://picsum.photos/seed/futbol/300/200" },
-    { id: 5, nombre: "Feria de emprendedores", imagen: "https://picsum.photos/seed/emprendedores/300/200" },
-  ]
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3000"
 
-  return NextResponse.json(eventos)
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const queryString = searchParams.toString()
+  const targetUrl = queryString ? `${BACKEND_URL}/events?${queryString}` : `${BACKEND_URL}/events`
+
+  const res = await fetch(targetUrl, {
+    cache: "no-store",
+  })
+
+  if (!res.ok) {
+    return NextResponse.json(
+      { error: "No se pudieron obtener los eventos" },
+      { status: res.status }
+    )
+  }
+
+  const data = await res.json()
+  return NextResponse.json(data)
+}
+
+export async function POST(request: Request) {
+  const cookieStore = await cookies()
+  const token = cookieStore.get("session")?.value
+  const body = await request.json()
+
+  const res = await fetch(`${BACKEND_URL}/events`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  })
+
+  if (!res.ok) {
+    return NextResponse.json(
+      { error: "No se pudo crear el evento" },
+      { status: res.status }
+    )
+  }
+
+  const data = await res.json()
+  return NextResponse.json(data)
 }
