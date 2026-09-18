@@ -149,7 +149,7 @@ export default function AdminCategoriasPage() {
           Cargando panel de categorías...
         </div>
       ) : filteredCategorias.length === 0 ? (
-        <div className="py-16 text-center text-sm text-slate-400 bg-[#0A0E18] border border-slate-800 rounded-2xl p-8">
+        <div className="py-16 text-center text-sm text-slate-400 bg-[#0c0c10] border border-zinc-800 rounded-2xl p-8">
           No se encontraron categorías. Haz clic en <span className="text-amber-400 font-semibold">+ Nueva Categoría</span> para comenzar.
         </div>
       ) : (
@@ -160,7 +160,7 @@ export default function AdminCategoriasPage() {
             return (
               <div
                 key={cat.id}
-                className="group relative bg-[#0C101B]/90 border border-slate-800/90 hover:border-amber-500/40 rounded-2xl p-5 shadow-lg flex flex-col justify-between transition-all duration-300 backdrop-blur-md"
+                className="group relative bg-[#0d0d12]/90 border border-zinc-800/90 hover:border-amber-500/40 rounded-2xl p-5 shadow-lg flex flex-col justify-between transition-all duration-300 backdrop-blur-md"
               >
                 <div>
                   {/* Encabezado de la tarjeta */}
@@ -214,7 +214,7 @@ export default function AdminCategoriasPage() {
                 {/* Botón Píldora Azul Eléctrico: Ver Eventos */}
                 <div className="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between">
                   <Link
-                    href={`/eventos`}
+                    href={`/eventos?categoryId=${cat.id}`}
                     className="w-full text-center py-2 px-4 rounded-full border border-blue-500/60 bg-blue-600/10 hover:bg-blue-600 text-blue-400 hover:text-white text-xs font-semibold shadow-[0_0_12px_rgba(37,99,235,0.2)] hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition duration-200"
                   >
                     👁️ Ver Eventos
@@ -229,7 +229,7 @@ export default function AdminCategoriasPage() {
       {/* MODAL PARA CREAR / EDITAR CATEGORÍA */}
       {showModal && (
         <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[#0C101B] border border-amber-500/30 rounded-2xl p-6 sm:p-7 max-w-md w-full shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_20px_rgba(245,158,11,0.1)]">
+          <div className="bg-[#0d0d12] border border-amber-500/30 rounded-2xl p-6 sm:p-7 max-w-md w-full shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_20px_rgba(245,158,11,0.1)]">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <span className="text-amber-400">🏷️</span>
@@ -252,7 +252,7 @@ export default function AdminCategoriasPage() {
                   value={catName}
                   onChange={(e) => setCatName(e.target.value)}
                   required
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
                 />
               </div>
 
@@ -263,7 +263,7 @@ export default function AdminCategoriasPage() {
                   value={catDesc}
                   onChange={(e) => setCatDesc(e.target.value)}
                   rows={3}
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
                 />
               </div>
 

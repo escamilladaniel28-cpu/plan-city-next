@@ -27,6 +27,9 @@ export async function POST(request: Request) {
   const response = NextResponse.json({ ok: true, user: data.user })
   response.cookies.set("session", data.accessToken, { path: "/" })
   response.cookies.set("role", data.user.role, { path: "/" })
+  if (data.user?.name) {
+    response.cookies.set("userName", encodeURIComponent(data.user.name), { path: "/" })
+  }
 
   return response
 }

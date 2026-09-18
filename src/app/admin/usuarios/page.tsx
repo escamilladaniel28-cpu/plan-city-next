@@ -100,14 +100,15 @@ export default function AdminUsuariosPage() {
               placeholder="Buscar usuarios..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-[#090D17] border border-slate-700/80 rounded-full pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-blue-500 transition"
+              className="w-full bg-[#08080b] border border-zinc-700/80 rounded-full pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-blue-500 transition"
             />
           </div>
 
+          {/* Botón Refrescar */}
           <button
             onClick={cargarUsuarios}
-            title="Refrescar lista"
-            className="text-xs font-semibold border border-slate-700/80 bg-[#090D17] text-slate-300 hover:text-white p-2 rounded-full transition cursor-pointer"
+            title="Recargar lista"
+            className="text-xs font-semibold border border-zinc-700/80 bg-[#08080b] text-slate-300 hover:text-white p-2 rounded-full transition cursor-pointer"
           >
             🔄
           </button>
@@ -127,22 +128,22 @@ export default function AdminUsuariosPage() {
 
       {/* Resumen Superior */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div className="bg-[#0C101B]/90 border border-slate-800 rounded-2xl p-4 shadow-md backdrop-blur-md">
+        <div className="bg-[#0d0d12]/90 border border-zinc-800 rounded-2xl p-4 shadow-md backdrop-blur-md">
           <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Total Cuentas</p>
           <p className="text-2xl font-black text-white mt-1">{usuarios.length}</p>
         </div>
-        <div className="bg-[#0C101B]/90 border border-slate-800 rounded-2xl p-4 shadow-md backdrop-blur-md">
+        <div className="bg-[#0d0d12]/90 border border-zinc-800 rounded-2xl p-4 shadow-md backdrop-blur-md">
           <p className="text-[11px] text-amber-400 font-semibold uppercase tracking-wider">Administradores</p>
           <p className="text-2xl font-black text-amber-400 mt-1">{totalAdmins}</p>
         </div>
-        <div className="bg-[#0C101B]/90 border border-slate-800 rounded-2xl p-4 shadow-md backdrop-blur-md">
+        <div className="bg-[#0d0d12]/90 border border-zinc-800 rounded-2xl p-4 shadow-md backdrop-blur-md">
           <p className="text-[11px] text-blue-400 font-semibold uppercase tracking-wider">Usuarios Estándar</p>
           <p className="text-2xl font-black text-blue-400 mt-1">{totalUsers}</p>
         </div>
       </div>
 
       {/* TABLA DE USUARIOS (como en Screen 6 del Mockup) */}
-      <div className="bg-[#0C101B]/90 border border-slate-800/90 rounded-2xl overflow-hidden shadow-lg backdrop-blur-md">
+      <div className="bg-[#0d0d12]/90 border border-zinc-800/90 rounded-2xl overflow-hidden shadow-lg backdrop-blur-md">
         {error && (
           <div className="p-4 bg-red-950/50 border-b border-red-800/50 text-red-400 text-sm">
             {error}
@@ -156,7 +157,7 @@ export default function AdminUsuariosPage() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#080B14] border-b border-slate-800 text-[11px] text-slate-400 uppercase tracking-wider">
+              <thead className="bg-[#050507] border-b border-zinc-800 text-[11px] text-slate-400 uppercase tracking-wider">
                 <tr>
                   <th className="p-4">Nombre</th>
                   <th className="p-4">Email</th>
@@ -166,9 +167,9 @@ export default function AdminUsuariosPage() {
                   <th className="p-4 text-right">Ajustes</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/70">
+              <tbody className="divide-y divide-zinc-800/70">
                 {filteredUsuarios.map((usuario) => (
-                  <tr key={usuario.id} className="hover:bg-slate-800/40 transition">
+                  <tr key={usuario.id} className="hover:bg-zinc-800/40 transition">
                     {/* Nombre con Avatar */}
                     <td className="p-4 flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500/20 to-blue-500/20 border border-amber-500/40 flex items-center justify-center font-bold text-xs text-amber-400 shadow-xs shrink-0">
@@ -248,7 +249,7 @@ export default function AdminUsuariosPage() {
       {/* MODAL + ADD USER */}
       {showModal && (
         <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[#0C101B] border border-amber-500/30 rounded-2xl p-6 sm:p-7 max-w-md w-full shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_20px_rgba(245,158,11,0.1)]">
+          <div className="bg-[#0d0d12] border border-amber-500/30 rounded-2xl p-6 sm:p-7 max-w-md w-full shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_20px_rgba(245,158,11,0.1)]">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <span className="text-amber-400">👥</span>
@@ -277,7 +278,7 @@ export default function AdminUsuariosPage() {
                   value={newUserName}
                   onChange={(e) => setNewUserName(e.target.value)}
                   required
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
                 />
               </div>
 
@@ -289,7 +290,7 @@ export default function AdminUsuariosPage() {
                   value={newUserEmail}
                   onChange={(e) => setNewUserEmail(e.target.value)}
                   required
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
                 />
               </div>
 
@@ -302,7 +303,7 @@ export default function AdminUsuariosPage() {
                   onChange={(e) => setNewUserPassword(e.target.value)}
                   required
                   minLength={6}
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
                 />
               </div>
 

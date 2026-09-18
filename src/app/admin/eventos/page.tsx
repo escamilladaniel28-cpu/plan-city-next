@@ -174,7 +174,7 @@ export default function AdminEventosPage() {
               placeholder="Buscar eventos..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-[#090D17] border border-slate-700/80 rounded-full pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-blue-500 transition"
+              className="w-full bg-[#08080b] border border-zinc-700/80 rounded-full pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-hidden focus:border-blue-500 transition"
             />
           </div>
 
@@ -182,7 +182,7 @@ export default function AdminEventosPage() {
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="bg-[#090D17] border border-slate-700/80 rounded-full px-3 py-1.5 text-xs text-slate-300 focus:outline-hidden focus:border-blue-500"
+            className="bg-[#08080b] border border-zinc-700/80 rounded-full px-3 py-1.5 text-xs text-slate-300 focus:outline-hidden focus:border-blue-500"
           >
             <option value="">Todas las categorías</option>
             {categorias.map((c) => (
@@ -208,17 +208,17 @@ export default function AdminEventosPage() {
         </div>
       )}
 
-      {/* FILAS ALARGADAS DE EVENTOS (como en Screen 5) */}
+      {/* LISTA DE EVENTOS EN TARJETAS HORIZONTALES ALARGADAS (como en Screen 5) */}
       {cargando ? (
         <div className="py-16 text-center text-sm text-slate-400">
-          Cargando listado de eventos...
+          Cargando panel de eventos...
         </div>
       ) : filteredEventos.length === 0 ? (
-        <div className="py-16 text-center text-sm text-slate-400 bg-[#0A0E18] border border-slate-800 rounded-2xl p-8">
-          No se encontraron eventos activos. Haz clic en <span className="text-amber-400 font-semibold">+ Crear Evento</span> para publicar el primero.
+        <div className="py-16 text-center text-sm text-slate-400 bg-[#0c0c10] border border-zinc-800 rounded-2xl p-8">
+          No se encontraron eventos con los filtros actuales. Haz clic en <span className="text-amber-400 font-semibold">+ Crear Evento</span> para comenzar.
         </div>
       ) : (
-        <div className="flex flex-col gap-3.5">
+        <div className="flex flex-col gap-4">
           {filteredEventos.map((evento) => {
             const dateObj = new Date(evento.date)
             const dia = String(dateObj.getDate()).padStart(2, "0")
@@ -232,7 +232,7 @@ export default function AdminEventosPage() {
             return (
               <div
                 key={evento.id}
-                className="group bg-[#0C101B]/90 border border-slate-800/90 hover:border-amber-500/40 rounded-2xl p-4 sm:p-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 shadow-md backdrop-blur-md transition duration-200"
+                className="group bg-[#0d0d12]/90 border border-zinc-800/90 hover:border-amber-500/40 rounded-2xl p-4 sm:p-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 shadow-md backdrop-blur-md transition duration-200"
               >
                 {/* Lado Izquierdo: Badge de Fecha + Imagen + Título */}
                 <div className="flex items-center gap-3.5 flex-1 min-w-0">
@@ -312,7 +312,7 @@ export default function AdminEventosPage() {
       {/* MODAL PARA CREAR / EDITAR EVENTO */}
       {showModal && (
         <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#0C101B] border border-amber-500/30 rounded-2xl p-6 sm:p-7 max-w-lg w-full shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_20px_rgba(245,158,11,0.1)] my-8">
+          <div className="bg-[#0d0d12] border border-amber-500/30 rounded-2xl p-6 sm:p-7 max-w-lg w-full shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_20px_rgba(245,158,11,0.1)] my-8">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <span className="text-amber-400">📅</span>
@@ -335,7 +335,7 @@ export default function AdminEventosPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500 transition"
                 />
               </div>
 
@@ -345,11 +345,11 @@ export default function AdminEventosPage() {
                   value={categoryId}
                   onChange={(e) => setCategoryId(e.target.value)}
                   required
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500"
                 >
-                  <option value="" className="bg-slate-950">Selecciona una categoría</option>
+                  <option value="" className="bg-zinc-950">Selecciona una categoría</option>
                   {categorias.map((c) => (
-                    <option key={c.id} value={c.id} className="bg-slate-950">
+                    <option key={c.id} value={c.id} className="bg-zinc-950">
                       {c.name}
                     </option>
                   ))}
@@ -363,7 +363,7 @@ export default function AdminEventosPage() {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows={2}
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3 py-2 text-sm text-white focus:outline-hidden focus:border-blue-500"
                 />
               </div>
 
@@ -375,7 +375,7 @@ export default function AdminEventosPage() {
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     required
-                    className="bg-[#070A12] border border-slate-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
+                    className="bg-[#060608] border border-zinc-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
                   />
                 </div>
 
@@ -387,7 +387,7 @@ export default function AdminEventosPage() {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     required
-                    className="bg-[#070A12] border border-slate-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
+                    className="bg-[#060608] border border-zinc-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -401,7 +401,7 @@ export default function AdminEventosPage() {
                     value={price}
                     onChange={(e) => setPrice(Number(e.target.value))}
                     required
-                    className="bg-[#070A12] border border-slate-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
+                    className="bg-[#060608] border border-zinc-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
                   />
                 </div>
 
@@ -413,7 +413,7 @@ export default function AdminEventosPage() {
                     value={capacity}
                     onChange={(e) => setCapacity(Number(e.target.value))}
                     required
-                    className="bg-[#070A12] border border-slate-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
+                    className="bg-[#060608] border border-zinc-700/80 rounded-xl px-2.5 py-1.5 text-xs text-white focus:outline-hidden focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -425,7 +425,7 @@ export default function AdminEventosPage() {
                   placeholder="https://ejemplo.com/flyer.jpg"
                   value={imageUrl}
                   onChange={(e) => setImageUrl(e.target.value)}
-                  className="bg-[#070A12] border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-hidden focus:border-blue-500"
+                  className="bg-[#060608] border border-zinc-700/80 rounded-xl px-3 py-2 text-xs text-white focus:outline-hidden focus:border-blue-500"
                 />
               </div>
 
