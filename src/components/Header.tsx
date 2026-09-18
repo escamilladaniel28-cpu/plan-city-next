@@ -7,9 +7,18 @@ export async function Header() {
   const cookieStore = await cookies()
   const hasSession = !!cookieStore.get("session")?.value
   const role = cookieStore.get("role")?.value
+  const rawUserName = cookieStore.get("userName")?.value
+  let userName = null
+  if (rawUserName) {
+    try {
+      userName = decodeURIComponent(rawUserName)
+    } catch {
+      userName = rawUserName
+    }
+  }
 
   return (
-    <header className="border-b border-slate-800/80 bg-[#07090E]/95 backdrop-blur-md sticky top-0 z-50">
+    <header className="border-b border-zinc-800/80 bg-[#050507]/90 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         {/* Logo EVENTURE */}
         <div className="flex items-center gap-8">
@@ -19,19 +28,19 @@ export async function Header() {
           <nav className="hidden md:flex items-center gap-2">
             <Link
               href="/"
-              className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition"
+              className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-zinc-800/60 rounded-full transition"
             >
               Explorar
             </Link>
             <Link
               href="/eventos"
-              className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition"
+              className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-zinc-800/60 rounded-full transition"
             >
               Eventos
             </Link>
             <Link
               href="/categorias"
-              className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition"
+              className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-zinc-800/60 rounded-full transition"
             >
               Categorías
             </Link>
@@ -42,6 +51,17 @@ export async function Header() {
         <div className="flex items-center gap-3">
           {hasSession ? (
             <div className="flex items-center gap-3">
+              {userName && (
+                <div className="hidden lg:flex items-center gap-2 bg-[#0e0e12] border border-zinc-700/80 px-3 py-1.5 rounded-full text-xs text-slate-200">
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-bold flex items-center justify-center text-[10px]">
+                    {userName.charAt(0).toUpperCase()}
+                  </div>
+                  <span className="font-semibold text-white max-w-[120px] truncate">
+                    {userName}
+                  </span>
+                </div>
+              )}
+
               <Link
                 href="/favoritos"
                 className="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition flex items-center gap-1.5"

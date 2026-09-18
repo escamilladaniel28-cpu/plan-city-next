@@ -39,7 +39,7 @@ export function ListaEventos({ search, categoryId }: ListaEventosProps = {}) {
         return (
           <li
             key={evento.id}
-            className="border border-slate-800/80 rounded-2xl overflow-hidden flex flex-col bg-slate-900/70 hover:bg-slate-900 text-left shadow-lg hover:shadow-blue-600/10 hover:border-slate-700 transition relative group"
+            className="border border-zinc-800/90 rounded-2xl overflow-hidden flex flex-col bg-[#0c0c10]/90 hover:bg-[#111116] text-left shadow-lg hover:shadow-blue-600/10 hover:border-zinc-700 transition relative group"
           >
             <EventoImagen evento={evento} />
 
@@ -47,7 +47,7 @@ export function ListaEventos({ search, categoryId }: ListaEventosProps = {}) {
               type="button"
               onClick={() => toggleFavorito(evento.id)}
               title={favorito ? "Quitar de favoritos" : "Agregar a favoritos"}
-              className="absolute top-2.5 right-2.5 bg-slate-950/80 backdrop-blur-md border border-slate-700/80 p-1.5 rounded-full shadow-md hover:scale-110 active:scale-95 transition text-sm flex items-center justify-center"
+              className="absolute top-2.5 right-2.5 bg-black/80 backdrop-blur-md border border-zinc-700/80 p-1.5 rounded-full shadow-md hover:scale-110 active:scale-95 transition text-sm flex items-center justify-center"
             >
               {favorito ? (
                 <span className="text-amber-400">★</span>

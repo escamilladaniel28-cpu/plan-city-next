@@ -25,7 +25,7 @@ export function ListaCategorias({ onSelect, selectedId }: ListaCategoriasProps =
               className={`w-full text-left px-3.5 py-2.5 rounded-xl text-sm transition flex items-center justify-between group ${
                 isSelected
                   ? "bg-blue-600 text-white font-semibold shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-blue-400/50"
-                  : "bg-slate-900/70 hover:bg-slate-800/90 text-slate-300 hover:text-white border border-slate-800/80 hover:border-slate-700"
+                  : "bg-[#0c0c10]/90 hover:bg-[#111116] text-slate-300 hover:text-white border border-zinc-800/80 hover:border-zinc-700"
               }`}
             >
               <span>{categoria.name}</span>

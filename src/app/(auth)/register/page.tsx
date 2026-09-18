@@ -59,7 +59,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-[85vh] flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md bg-[#0C101B]/90 border border-amber-500/20 rounded-2xl p-7 sm:p-8 shadow-[0_0_50px_rgba(0,0,0,0.8),0_0_20px_rgba(245,158,11,0.06)] backdrop-blur-xl">
+      <div className="w-full max-w-md bg-[#0d0d12]/95 border border-zinc-800/90 rounded-2xl p-7 sm:p-8 shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_20px_rgba(245,158,11,0.08)] backdrop-blur-xl">
         {/* Logo superior centrado */}
         <div className="flex justify-center mb-5">
           <EventureLogo iconSize={32} />
@@ -81,7 +81,7 @@ export default function RegisterPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full bg-[#080B12] border border-slate-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-3.5 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
+                className="w-full bg-[#060608] border border-zinc-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-3.5 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function RegisterPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-[#080B12] border border-slate-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-3.5 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
+                className="w-full bg-[#060608] border border-zinc-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-3.5 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
               />
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full bg-[#080B12] border border-slate-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-10 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
+                className="w-full bg-[#060608] border border-zinc-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-10 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
               />
               <button
                 type="button"
@@ -138,7 +138,7 @@ export default function RegisterPage() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full bg-[#080B12] border border-slate-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-3.5 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
+                className="w-full bg-[#060608] border border-zinc-700/80 focus:border-blue-500 text-white placeholder-slate-500 rounded-xl pl-10 pr-3.5 py-2.5 text-sm focus:outline-hidden focus:ring-1 focus:ring-blue-500 transition shadow-inner"
               />
             </div>
           </div>
